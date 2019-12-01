@@ -662,10 +662,10 @@ maingame = function() {
         //Joystick button uses pythagoream theorem to make it more exact
         circlecollision(mousex, 27.5, mousey, 267.5, 22.5) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
         ctx.drawImage(gifload[6], 5 * (hs / 297), 245 * (hs / 297), 45 * (hs / 297), 45 * (hs / 297));
-        ctx.drawImage(gifload[7], (ctx.globalAlpha == 1 && mouseup == false) ? mousex - 6.5 * (hs / 297) : 20 * (hs / 297), (ctx.globalAlpha == 1 && mouseup == false) ? mousey - 7.5 * (hs / 297) : 260 * (hs / 297), 15 * (hs / 297), 15 * (hs / 297));
+        ctx.drawImage(gifload[7], (ctx.globalAlpha == 1 && (!mouseup||mousedown)) ? mousex - 6.5 * (hs / 297) : 20 * (hs / 297), (ctx.globalAlpha == 1 && mouseup == false) ? mousey - 7.5 * (hs / 297) : 260 * (hs / 297), 15 * (hs / 297), 15 * (hs / 297));
 
         //Scaling applies here to match moving through keys as much as possible
-        if (ctx.globalAlpha == 1 && mouseup == false) {
+        if (ctx.globalAlpha == 1 && (!mouseup||mousedown)) {
             pixpets[0].keyDown(0, [(mousex - 27.5 * (hs / 297)) / 1.5 / (hs / 297), (mousey - 267.5 * (hs / 297)) / 1.5 / (hs / 297)]);
         }
 
