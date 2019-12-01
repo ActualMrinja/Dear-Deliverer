@@ -466,6 +466,14 @@ endgamemake = function() {
             if (ctx.globalAlpha == 1 && mousedown) {
                 mousedown = false;
                 endgame = true;
+                
+                //End jingle is paused  
+                for (let autopause = 0; autopause < sounds.length; autopause++) {
+                  if (sounds[autopause].pause) {
+                  sounds[autopause].volume = 0
+                   }
+                }
+                
                 music.play();
             }
 
@@ -476,6 +484,14 @@ endgamemake = function() {
                 PATS -= 1;
                 prize += 1;
                 endgame = true;
+                
+                //End jingle is paused  
+                for (let autopause = 0; autopause < sounds.length; autopause++) {
+                  if (sounds[autopause].pause) {
+                  sounds[autopause].volume = 0
+                   }
+                }
+                
                 music.play();
             }
             ctx.globalAlpha = 1;
@@ -488,6 +504,14 @@ endgamemake = function() {
             if (ctx.globalAlpha == 1 && mousedown) {
                 mousedown = false;
                 endgame = true;
+                
+                //End jingle is paused  
+                for (let autopause = 0; autopause < sounds.length; autopause++) {
+                  if (sounds[autopause].pause) {
+                  sounds[autopause].volume = 0
+                   }
+                }
+                
                 music.play();
             }
             ctx.globalAlpha = 1;
