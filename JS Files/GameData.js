@@ -365,7 +365,8 @@ backgroundload = function() {
 
     }
 
-
+if(pixpets[0].Health > 0&&!endgame)
+    
     /**
     Mobath Spawning
     Score 100-200 - 5% chance every second
@@ -424,6 +425,8 @@ backgroundload = function() {
     } else if (score >= 400 && score < 500 && Math.floor(Math.random() * 40) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Parrogrine", 550, Math.random() * 147 + 50));
     }
+    
+}
 
     //A skill bubble generates every 8 seconds, 50% for primary or secondary skill
     if (Math.ceil(seconds) % 8 == 0 && seconds % 1 > 0.9 + 2 / 30) {
