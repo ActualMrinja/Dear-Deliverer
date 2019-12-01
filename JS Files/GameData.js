@@ -365,7 +365,7 @@ backgroundload = function() {
 
     }
 
-if(pixpets[0].Health > 0&&!endgame)
+if(pixpets[0].Health > 0&&!endgame){
     
     /**
     Mobath Spawning
