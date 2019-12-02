@@ -77,7 +77,7 @@ items = {
         Current_Time: 0,
     },
     Sleigher: {
-        Description: "USE TO BECOME INVINCIBLE FROM ENEMY CONTACT DAMAGE FOR 3 SECONDS\nDURING THIS TIME YOU CAN DEAL CONTACT DAMAGE",
+        Description: "USE TO BECOME INVINCIBLE FROM ENEMY CONTACT DAMAGE FOR 3 SECONDS\nDURING THIS TIME YOU DEAl CONTACT DAMAGE",
         BubbleIndex: 13,
         Reload_Time: 4.5,
         Current_Time: 0,
@@ -194,8 +194,8 @@ mousemake = function(event) {
 }
 
 mobilemousemake = function(event) {
-    mousex = event.touches.clientX - canvas.getBoundingClientRect().left;
-    mousey = event.touches.clientY - canvas.getBoundingClientRect().top;
+    mousex = event.touches[0].clientX - canvas.getBoundingClientRect().left;
+    mousey = event.touches[0].clientY - canvas.getBoundingClientRect().top;
     mousedown = true;
 }
 
@@ -571,7 +571,7 @@ endgamemake = function() {
         textmaker("TIPS", 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 224 : 222, 12, true);
 
         if (tipon == true) {
-            textmaker("Collect points by:\n-Dropping presents through chimneys\n-Defeating enemies\n-Switching skills through skill bubbles\n\nPresents give more points depending on\ntheir coloring and amount of lives\nstarted off with\n\nMove with arrow keys, touchpad, or WASD\n\nHotkeys\n1:Drop Presents\n2:Infinite Skills (Have Cooldown)\n3:Finite Skills (Have Limited USAGE)".toUpperCase(), 20, 70, 12);
+            textmaker("Collect points by:\n-Dropping presents through chimneys\n-Defeating enemies\n-Switching skills through skill bubbles\n\nPresents give more points depending on\ntheir coloring and amount of lives\nstarted off with\n\nMove with arrow keys, joystick, or WASD\n\nHotkeys\n1:Drop Presents\n2:Infinite Skills (Have Cooldown)\n3:Finite Skills (Have Limited USAGE)".toUpperCase(), 20, 70, 12);
         }
 
     }
@@ -650,11 +650,12 @@ maingame = function() {
     ctx.drawImage(gifload[5], 220 * (hs / 297), 1 * (hs / 297), gifload[5].width / 5.5 * (hs / 297), gifload[5].height / 5.5 * (hs / 297));
     textmaker("DEAR DELIVERER", 280, 33.5, 20);
 
+    //overload
     if (score > 99999) {
         score = 99999
     }
+    
     textmaker("SCORE: " + (endgame ? "000" : score), 20, 33.5, 20);
-
 
     (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30)) ? ctx.globalAlpha = 1: ctx.globalAlpha = 0.85;
     ctx.drawImage((ws == 528) ? gifload[1] : gifload[2], (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30);
