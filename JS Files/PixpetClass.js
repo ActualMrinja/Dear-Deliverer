@@ -214,7 +214,7 @@ pixpet.prototype.skill = function(index, skilltype) {
             }
 
             //Parrogrine's have contact damage
-            if (pixpets[0].FadeOut == 0 && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
+            if ((pixpets[0].FadeOut == 0||pixpets[0].Sleigher > 0) && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
                 this.playercollision(index)
             }
 
@@ -235,7 +235,7 @@ pixpet.prototype.skill = function(index, skilltype) {
                 this.Rotate = Math.atan2(this.Y - pixpets[0].Y, this.X - pixpets[0].X) * (180 / Math.PI)
 
                 //Taffyglider's have contact damage
-                if (pixpets[0].FadeOut == 0 && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
+                if ((pixpets[0].FadeOut == 0||pixpets[0].Sleigher > 0) && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
                     this.playercollision(index)
                 }
 
@@ -251,7 +251,7 @@ pixpet.prototype.skill = function(index, skilltype) {
                 this.Y += (pixpets[0].Y - this.Y) / 20;
 
                 //Taffyglider's have contact damage
-                if (pixpets[0].FadeOut == 0 && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
+                if ((pixpets[0].FadeOut == 0||pixpets[0].Sleigher > 0) && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
                     this.playercollision(index)
                 }
 
@@ -279,7 +279,7 @@ pixpet.prototype.skill = function(index, skilltype) {
                 }
 
                 //Mobath's have contact damage
-                if (pixpets[0].FadeOut == 0 && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
+                if ((pixpets[0].FadeOut == 0||pixpets[0].Sleigher > 0) && pixpets[0].Health > 0 && this.FadeOut == 0 && pixpets[0].Invincibility <= 0) {
                     this.playercollision(index)
                 }
 
