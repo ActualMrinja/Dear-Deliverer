@@ -188,9 +188,15 @@ soundeffect = function(file) {
 
 }
 
-mousemake = function(event, mousedown) {
+mousemake = function(event) {
     mousex = event.clientX - canvas.getBoundingClientRect().left;
     mousey = event.clientY - canvas.getBoundingClientRect().top;
+}
+
+mobilemousemake = function(event) {
+    mousex = event.clientX - canvas.getBoundingClientRect().left;
+    mousey = event.clientY - canvas.getBoundingClientRect().top;
+    mousedown = true;
 }
 
 mousedowncheck = function() {
@@ -711,6 +717,7 @@ maingame = function() {
 canvas.addEventListener("keydown", keydowncode);
 canvas.addEventListener("keyup", keyupcode => keyup.splice(keyup.indexOf(event.keyCode), 1));
 canvas.addEventListener("mousemove", mousemake);
+canvas.addEventListener("touchmove", mobilemousemake);
 canvas.addEventListener("mousedown", mousedowncheck);
 canvas.addEventListener("mouseup", mouseupcheck => mouseup = true);
 
