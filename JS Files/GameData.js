@@ -194,8 +194,8 @@ mousemake = function(event) {
 }
 
 mobilemousemake = function(event) {
-    mousex = event.clientX - canvas.getBoundingClientRect().left;
-    mousey = event.clientY - canvas.getBoundingClientRect().top;
+    mousex = event.touches.clientX - canvas.getBoundingClientRect().left;
+    mousey = event.touches.clientY - canvas.getBoundingClientRect().top;
     mousedown = true;
 }
 
