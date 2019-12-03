@@ -507,7 +507,7 @@ endgamemake = function() {
         textmaker("TIPS", 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 224 : 222, 12, true);
 
         if (tipon == true) {
-            textmaker("Collect points by:\n-Dropping presents through chimneys\n-Defeating enemies\n-Switching skills through skill bubbles\n\nPresents give more points depending on\ntheir coloring and amount of lives\nstarted off with\n\nMove with arrow keys, joystick, or WASD\n\nHotkeys\n1:Drop Presents\n2:Infinite Skills (Have Cooldown)\n3:Finite Skills (Have Limited USAGE)".toUpperCase(), 20, 70, 12);
+            textmaker("Collect points by:\n-Dropping presents through chimneys\n-PC bubbles\n\nPresents give more points depending on\ntheir coloring and amount of lives\nstarted off with\n\nMove with arrow keys, joystick, or WASD\n\nDo not touch chimneys or other pixpets".toUpperCase(), 20, 90, 12);
         }
 
     }
