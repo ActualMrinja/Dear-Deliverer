@@ -289,7 +289,7 @@ pixpet.prototype.draw = function(index) {
     this.DeathAnimation = 1;
     } else if(this.Rotate > -60&&this.DeathAnimation == 1){
     this.Rotate -= 8;
-    this.Y -= Math.abs((60-this.Rotate)/3);
+    this.Y -= Math.abs((60-this.Rotate)/2.5);
     this.X += 2.5;
     } else {
     this.Rotate = 0;
