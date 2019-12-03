@@ -58,20 +58,6 @@ pixpet.prototype.keyDown = function(keyCode, sprintAmount = []) {
 
     }
 
-    //coordinate constraints
-    if (this.X > 500) {
-        this.X = 500
-    }
-    if (this.X < 0) {
-        this.X = 0
-    }
-    if (this.Y > 280) {
-        this.Y = 280
-    }
-    if (this.Y < 50&&this.Health > 0) {
-        this.Y = 50
-    }
-
 }
 
 pixpet.prototype.delete = function(index) {
@@ -241,6 +227,20 @@ pixpet.prototype.draw = function(index) {
 
     } else if(chimneyfound[2] == false&&collision(chimneyfound[0], chimneyfound[1], gifload[13].width / 3, gifload[13].height, this.X - this.Image.width / 3 / 2 / 2, this.Y - this.Image.height / 3 / 2, this.Image.width / 3 / 2, this.Image.height / 3)&&this.Health > 0) {
     this.hurt(0,3);
+    } else {
+      //coordinate constraints
+      if (this.X > 500) {
+        this.X = 500
+       }
+       if (this.X < 0) {
+        this.X = 0
+       }
+       if (this.Y > 280) {
+        this.Y = 280
+       }
+       if (this.Y < 50&&this.Health > 0) {
+        this.Y = 50
+       }
     }
 
 
@@ -297,5 +297,7 @@ pixpet.prototype.draw = function(index) {
     }
        
    }
+    
+    
 
 }
