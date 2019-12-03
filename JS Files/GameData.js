@@ -14,33 +14,25 @@ ctx = canvas.getContext("2d");
 9 is Sweet Delivery
 10 is Snow Heart
 11 is Empty Heart
-12 is Taffyglider Taffy
-13 is Sleigher Icon
-14 is Chimney
-15 is Silver Delivery
-16 is Golden Delivery
-17 is FalsePresent
-18 is FalsePresent Icon
-19 is Tricicle
-20 is Tricicle Icon
-21 is Wintry Fury Icon
-22 is Snowball
-23 is Invincible Heart
+12 is Score Plus Icon
+13 is Chimney
+14 is Silver Delivery
+15 is Golden Delivery
+16 is Invincible Heart
+17 is Heart Up Icon
+18 is Music On 
+19 is Music Off
+20 is Sound On
+21 is Sound Off
+22 is Button Unclick
+23 is Button Click
 24 is Heart Of Ice Icon
-25 is Winter Storm
-26 is The Winter Storm Icon
-27 is Music On 
-28 is Music Off
-29 is Sound On
-30 is Sound Off
-31 is Button Unclick
-32 is Button Click
 **/
 
-gifname = ["Gif Files/Header.gif", "Gif Files/FullScreenButton.gif", "Gif Files/SmallScreenButton.gif", "Gif Files/Snow.gif", "Gif Files/Cloud.gif", "Gif Files/Pydeer.gif", "Gif Files/PlayerJoystick.gif", "Gif Files/JoystickTop.gif", "Gif Files/Sweet_DeliveryIcon.gif", "Gif Files/SweetDelivery.gif", "Gif Files/SnowHeart.gif", "Gif Files/EmptyHeart.gif", "Gif Files/TaffygliderTaffy.gif", "Gif Files/SleigherIcon.gif", "Gif Files/Chimney.gif", "Gif Files/SilverDelivery.gif", "Gif Files/GoldenDelivery.gif", "Gif Files/FalsePresent.gif", "Gif Files/False_PresentIcon.gif", "Gif Files/Tricicle.gif", "Gif Files/TricicleIcon.gif", "Gif Files/Wintry_FuryIcon.gif", "Gif Files/Snowball.gif", "Gif Files/InvincibleHeart.gif", "Gif Files/Heart_Of_IceIcon.gif", "Gif Files/WinterStorm.gif", "Gif Files/The_Winter_StormIcon.gif", "Gif Files/MusicOn.gif", "Gif Files/MusicOff.gif", "Gif Files/SoundOn.gif", "Gif Files/SoundOff.gif", "Gif Files/ButtonUnclick.gif", "Gif Files/ButtonClick.gif"];
+gifname = ["Gif Files/Header.gif", "Gif Files/FullScreenButton.gif", "Gif Files/SmallScreenButton.gif", "Gif Files/Snow.gif", "Gif Files/Cloud.gif", "Gif Files/Pydeer.gif", "Gif Files/PlayerJoystick.gif", "Gif Files/JoystickTop.gif", "Gif Files/Sweet_DeliveryIcon.gif", "Gif Files/SweetDelivery.gif", "Gif Files/SnowHeart.gif", "Gif Files/EmptyHeart.gif", "Gif Files/ScorePlusIcon.gif", "Gif Files/Chimney.gif", "Gif Files/SilverDelivery.gif", "Gif Files/GoldenDelivery.gif", "Gif Files/InvincibleHeart.gif", "Gif Files/HeartUpIcon.gif", "Gif Files/MusicOn.gif", "Gif Files/MusicOff.gif", "Gif Files/SoundOn.gif", "Gif Files/SoundOff.gif", "Gif Files/ButtonUnclick.gif", "Gif Files/ButtonClick.gif", "Gif Files/HeartOfIceIcon.gif"];
 gifload = [];
 
-preloadname = ["Png Files/Pydeer.png", "Png Files/Taffyglider.png", "Png Files/SleigherTracks.png", "Png Files/Mobath.png", "Png Files/Troffinch.png", "Png Files/Parrogrine.png"];
+preloadname = ["Png Files/Pydeer.png", "Png Files/Taffyglider.png", "Png Files/Mobath.png", "Png Files/Troffinch.png", "Png Files/Parrogrine.png"];
 preload = [];
 
 for (let loader = 0; loader < gifname.length; loader++) {
@@ -66,55 +58,7 @@ livestotal = 3;
 score = 99999;
 seconds = 0;
 
-chimneyfound = [550, 250, false];
-
-//contains items and skills used by the main character
-items = {
-    Sweet_Delivery: {
-        Description: "USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS\n(WILL FAIL WHEN USED NEAR A CHIMNEY)",
-        BubbleIndex: 8,
-        Reload_Time: 0.5,
-        Current_Time: 0,
-    },
-    Sleigher: {
-        Description: "USE TO BECOME INVINCIBLE FROM ENEMY CONTACT DAMAGE FOR 3 SECONDS\nDURING THIS TIME YOU DEAl CONTACT DAMAGE",
-        BubbleIndex: 13,
-        Reload_Time: 4.5,
-        Current_Time: 0,
-    },
-    Wintry_Fury: {
-        Description: "USE TO ENTER INTO A SNOWBALL FRENZY FOR 4 SECONDS\nSNOWBALLS CAN ALSO DAMAGE RECOVERING ENEMIES",
-        BubbleIndex: 21,
-        Reload_Time: 8,
-        Current_Time: 0,
-    },
-    The_Winter_Storm: {
-        Description: "USE TO SUMMON THE WINTER STORM, A COMPACT BLIZZARD\nIT HAPPENS TO PUNISH NEARBY PIXPETS WITH ILL INTENTIONS",
-        BubbleIndex: 26,
-        Reload_Time: 45,
-        Current_Time: 0,
-    },
-    False_Present: {
-        Description: "USE TO DROP A PRESENT MIMIC\nTHIS SAFE WILL SURE HURT ANYONE THAT DARES SET FOOT UNDERNEATH IT",
-        BubbleIndex: 18,
-        Max_Quantity: 12,
-        Current_Quantity: 12,
-    },
-    Tricicle: {
-        Description: "USE TO SHOOT THREE SHARP ICICLES THAT SPREAD\nICICLES CAN DAMAGE EVEN WHEN ENEMIES ARE RECOVERING",
-        BubbleIndex: 20,
-        Max_Quantity: 9,
-        Current_Quantity: 9,
-    },
-    Heart_Of_Ice: {
-        Description: "USE TO BECOME INVINCIBLE FROM ANY ATTACK FOR 5 SECONDS\nALSO GRANTS A HEART",
-        BubbleIndex: 24,
-        Max_Quantity: 1,
-        Current_Quantity: 1,
-    }
-}
-primarySkills = ["Wintry_Fury", "Sleigher", "The_Winter_Storm"]
-secondarySkills = ["False_Present", "Tricicle", "Heart_Of_Ice"]
+chimneyfound = [550, 250, true];
 
 pixpets = [new pixpet("Pydeer", 150, 140)]
 itemsmake = []
@@ -301,15 +245,15 @@ fullscreencode = function() {
 //skill buttons display and code goes here
 skillbuttons = function(x, y, itemOwned) {
     circlecollision(mousex, x + 15, mousey, y + 15, 15) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[items[pixpets[0].ownedItems[itemOwned]].BubbleIndex], x * (hs / 297), y * (hs / 297), 30 * (hs / 297), 30 * (hs / 297))
+    ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 30 * (hs / 297), 30 * (hs / 297))
 
     if (ctx.globalAlpha == 1) {
-        textmaker(pixpets[0].ownedItems[itemOwned].split("_").join(" ").toUpperCase() + (itemOwned == 2 ? " x" + items[pixpets[0].ownedItems[itemOwned]].Current_Quantity + "" : "") + " (HOTKEY: " + (itemOwned + 1) + ")", 110, 265, 10)
-        textmaker(items[pixpets[0].ownedItems[itemOwned]].Description, 110, 275, 8)
+        textmaker("Sweet Delivery", 110, 265, 10)
+        textmaker("USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS", 110, 275, 8)
 
-        if (mousedown && (itemOwned == 2 ? items[pixpets[0].ownedItems[itemOwned]].Current_Quantity > 0 : items[pixpets[0].ownedItems[itemOwned]].Current_Time == 0)) {
-            itemOwned == 2 ? items[pixpets[0].ownedItems[itemOwned]].Current_Quantity -= 1 : items[pixpets[0].ownedItems[itemOwned]].Current_Time = items[pixpets[0].ownedItems[itemOwned]].Reload_Time;
-            pixpets[0].skill(0, pixpets[0].ownedItems[itemOwned]);
+        if (mousedown && pixpets[0].Reload == 0) {
+            pixpets[0].Reload = 0.5;
+            pixpets[0].skill(0, "Sweet_Delivery");
             mousedown = false;
         }
 
@@ -320,14 +264,14 @@ skillbuttons = function(x, y, itemOwned) {
     ctx.beginPath();
     ctx.strokeStyle = "black";
     ctx.lineWidth = 5 * (hs / 297);
-    ctx.arc((x + 15) * (hs / 297), (y + 15) * (hs / 297), 15 * (hs / 297), Math.PI / 180 * -90, (((360 / (itemOwned == 2 ? items[pixpets[0].ownedItems[itemOwned]].Max_Quantity : items[pixpets[0].ownedItems[itemOwned]].Reload_Time)) * (itemOwned == 2 ? items[pixpets[0].ownedItems[itemOwned]].Current_Quantity : items[pixpets[0].ownedItems[itemOwned]].Current_Time)) - 90) * Math.PI / 180, false)
+    ctx.arc((x + 15) * (hs / 297), (y + 15) * (hs / 297), 15 * (hs / 297), Math.PI / 180 * -90, (((360 / 0.5) * pixpets[0].Reload) - 90) * Math.PI / 180, false)
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.strokeStyle = "#ff7f73";
     ctx.lineWidth = 1.75 * (hs / 297);
-    ctx.arc((x + 15) * (hs / 297), (y + 15) * (hs / 297), 15 * (hs / 297), Math.PI / 180 * -90, (((360 / (itemOwned == 2 ? items[pixpets[0].ownedItems[itemOwned]].Max_Quantity : items[pixpets[0].ownedItems[itemOwned]].Reload_Time)) * (itemOwned == 2 ? items[pixpets[0].ownedItems[itemOwned]].Current_Quantity : items[pixpets[0].ownedItems[itemOwned]].Current_Time)) - 90) * Math.PI / 180, false)
+    ctx.arc((x + 15) * (hs / 297), (y + 15) * (hs / 297), 15 * (hs / 297), Math.PI / 180 * -90, (((360 / 0.5) * pixpets[0].Reload) - 90) * Math.PI / 180, false)
     ctx.stroke();
     ctx.closePath();
 }
@@ -375,86 +319,81 @@ if(pixpets[0].Health > 0&&!endgame){
     
     /**
     Mobath Spawning
-    Score 100-200 - 5% chance every second
-    Score 50-99 - 20% chance every second
-    Score 0-49 - 10% chance every second
+    Score 100-200 - 1/3
+    Score 50-99 - 1/4
+    Score 0-49 - 1/5
     **/
-    if (score < 50 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 10) + 1 == 1) {
+    if (score < 50 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 5) + 1 == 1) {
         pixpets.push(new pixpet("Mobath", 550, Math.random() * 147 + 50));
-    } else if (score >= 50 && score < 100 && Math.floor(Math.random() * 5) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 50 && score < 100 && Math.floor(Math.random() * 4) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Mobath", 550, Math.random() * 147 + 50));
-    } else if (score >= 100 && score < 200 && Math.floor(Math.random() * 20) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 100 && score < 200 && Math.floor(Math.random() * 3) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Mobath", 550, Math.random() * 147 + 50));
     }
 
     /**
     Taffyglider Spawning
-    Score 200+ - 10% chance every second
-    Score 150-199 - 6.6% chance every second
-    Score 50-149 - 5% chance every second
+    Score 200+ - 1/8
+    Score 150-199 - 1/9
+    Score 50-149 - 1/10
     **/
-    if (score >= 200 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 10) + 1 == 1) {
+    if (score >= 200 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 8) + 1 == 1) {
         pixpets.push(new pixpet("Taffyglider", 550, Math.random() * 147 + 50));
-    } else if (score >= 150 && score < 200 && Math.floor(Math.random() * 15) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 150 && score < 200 && Math.floor(Math.random() * 9) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Taffyglider", 550, Math.random() * 147 + 50));
-    } else if (score >= 50 && score < 150 && Math.floor(Math.random() * 20) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 50 && score < 150 && Math.floor(Math.random() * 10) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Taffyglider", 550, Math.random() * 147 + 50));
     }
 
     /**
     Troffinch Spawning
-    Score 400+ - 5% chance every second
-    Score 300-399 - 4% chance every second
-    Score 200-299 - 3.3% chance every second
+    Score 200+ - 1/5 (1/5 a flock - 4/5 for a flydown)
     **/
-    if (score >= 400 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 20) + 1 == 1) {
+    if (score >= 200 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 5) + 1 == 1) {
+        
+        if(Math.floor(Math.random() * 5) + 1 == 1){
         pixpets.push(new pixpet("Troffinch", 550, Math.random() * 147 + 50));
-    } else if (score >= 300 && score < 400 && Math.floor(Math.random() * 25) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
-        pixpets.push(new pixpet("Troffinch", 550, Math.random() * 147 + 50));
-    } else if (score >= 200 && score < 300 && Math.floor(Math.random() * 30) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
-        pixpets.push(new pixpet("Troffinch", 550, Math.random() * 147 + 50));
-    }
+        pixpets.push(new pixpet("Troffinch", 700, pixpets[pixpets.length-1].Y-50));
+        pixpets.push(new pixpet("Troffinch", 700, pixpets[pixpets.length-2].Y+50));
+        pixpets.push(new pixpet("Troffinch", 850, pixpets[pixpets.length-3].Y-100));
+        pixpets.push(new pixpet("Troffinch", 850, pixpets[pixpets.length-4].Y+100));
+        } else {
+         pixpets.push(new pixpet("Troffinch", pixpets[0].X, 50));
+         pixpets[pixpets.length-1].Rotate = -90;
+        }
+            
+    } 
 
     /**
     Parrogrine Spawning
-    Score 750+ - 5% chance every second
-    Score 600-749 - 3.3% chance every second
-    Score 500-599 - 2.8% chance every second
-    Score 400-499 - 2.5% chance every second
+    Score 750+ - 1/15
+    Score 600-749 - 1/16
+    Score 500-599 - 1/18
+    Score 400-499 - 1/20
     **/
-    if (score >= 750 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 20) + 1 == 1) {
+    if (score >= 750 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 15) + 1 == 1) {
         pixpets.push(new pixpet("Parrogrine", 550, Math.random() * 147 + 50));
-    } else if (score >= 600 && score < 750 && Math.floor(Math.random() * 30) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 600 && score < 750 && Math.floor(Math.random() * 16) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Parrogrine", 550, Math.random() * 147 + 50));
-    } else if (score >= 500 && score < 600 && Math.floor(Math.random() * 35) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 500 && score < 600 && Math.floor(Math.random() * 18) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Parrogrine", 550, Math.random() * 147 + 50));
-    } else if (score >= 400 && score < 500 && Math.floor(Math.random() * 40) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
+    } else if (score >= 400 && score < 500 && Math.floor(Math.random() * 20) + 1 == 1 && seconds % 1 > 0.9 + 2 / 30) {
         pixpets.push(new pixpet("Parrogrine", 550, Math.random() * 147 + 50));
     }
     
-}
 
     //A skill bubble generates every 8 seconds, 50% for primary or secondary skill
-    if (Math.ceil(seconds) % 8 == 0 && seconds % 1 > 0.9 + 2 / 30) {
-
-        if (Math.floor(Math.random() * 2) + 1 == 1) {
-            let primaryskillpicked = Math.floor(Math.random() * primarySkills.length);
-
-            while (primarySkills[primaryskillpicked] == pixpets[0].ownedItems[1]) {
-                primaryskillpicked = Math.floor(Math.random() * primarySkills.length);
-            }
-            itemsmake.push(new itembuild(primarySkills[primaryskillpicked] + "Icon", 450, Math.random() * 147 + 50));
-
-        } else {
-            itemsmake.push(new itembuild(secondarySkills[Math.floor(Math.random() * 3)] + "Icon", 450, Math.random() * 147 + 50));
+    if (Math.ceil(seconds) % 10 == 0 && seconds % 1 > 0.9 + 2 / 30) {
+            let bubblePick = Math.floor(Math.random() * 3);
+            itemsmake.push(new itembuild(bubblePick == 0 ? "HeartOfIceIcon" : bubblePick == 1 ? "HeartUpIcon" : "ScorePlusIcon", 450, Math.random() * 147 + 50));
         }
 
     }
 
     //50% a chimney spawns every second  
-    if (seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 2) + 1 == 1 && chimneyfound[2] == true && chimneyfound[1] >= 300) {
+    if (seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 1) + 1 == 1 && chimneyfound[2] == true && chimneyfound[1] >= 300) {
         chimneyfound[0] = 550;
-        chimneyfound[1] = 200 + Math.floor(Math.random() * 51);
+        chimneyfound[1] = 100 + Math.floor(Math.random() * 151);
         chimneyfound[2] = false;
     }
 
@@ -471,7 +410,7 @@ endgamemake = function() {
         if (PATS > 0) {
 
             collision(mousex, mousey, 0, 0, 155 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-            ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[32] : gifload[31], 155 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
+            ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 155 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
             if (ctx.globalAlpha == 1 && mousedown) {
                 mousedown = false;
                 endgame = true;
@@ -487,7 +426,7 @@ endgamemake = function() {
             }
 
             collision(mousex, mousey, 0, 0, 275 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-            ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[32] : gifload[31], 275 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
+            ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 275 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
             if (ctx.globalAlpha == 1 && mousedown) {
                 mousedown = false;
                 PATS -= 1;
@@ -509,7 +448,7 @@ endgamemake = function() {
         } else {
 
             collision(mousex, mousey, 0, 0, 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-            ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[32] : gifload[31], 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
+            ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
             if (ctx.globalAlpha == 1 && mousedown) {
                 mousedown = false;
                 endgame = true;
@@ -531,16 +470,13 @@ endgamemake = function() {
         pixpets.splice(1, pixpets.length - 1);
 
         collision(mousex, mousey, 0, 0, 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-        ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[32] : gifload[31], 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
+        ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
 
         if (ctx.globalAlpha == 1 && mousedown) {
             score = 0;
             seconds = 0;
             endgame = false;
             tipon = false;
-            items.Sweet_Delivery.Current_Time = 0;
-            items.Sleigher.Current_Time = 0;
-            items.False_Present.Current_Quantity = 12;
             pixpets = [new pixpet("Pydeer", pixpets[0].X, pixpets[0].Y)];
         }
 
@@ -548,7 +484,7 @@ endgamemake = function() {
         textmaker("PLAY", 449, !mouseup && collision(mousex, mousey, 0, 0, 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 174 : 172, 12, true);
 
         collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-        ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[32] : gifload[31], 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
+        ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
 
         if (ctx.globalAlpha == 1 && mousedown) {
             livestotal += 1;
@@ -561,7 +497,7 @@ endgamemake = function() {
         textmaker("LIVES: " + livestotal, 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 124 : 122, 12, true);
 
         collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-        ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[32] : gifload[31], 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
+        ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
 
         if (ctx.globalAlpha == 1 && mousedown) {
             tipon = !tipon
@@ -616,7 +552,7 @@ maingame = function() {
             chimneyfound[2] = true
         }
 
-        ctx.drawImage(gifload[14], 0, 0, gifload[14].width, 80, chimneyfound[0] * (hs / 297), chimneyfound[1] * (hs / 297), gifload[14].width / 3 * (hs / 297), 80 / 3 * (hs / 297));
+        ctx.drawImage(gifload[13], 0, 0, gifload[13].width, 80, chimneyfound[0] * (hs / 297), chimneyfound[1] * (hs / 297), gifload[13].width / 3 * (hs / 297), 80 / 3 * (hs / 297));
     }
 
     if (pixpets[0].Health > 0) {
@@ -626,7 +562,7 @@ maingame = function() {
     }
 
     if (chimneyfound[2] == false || chimneyfound[1] < 300) {
-        ctx.drawImage(gifload[14], 0, 80, gifload[14].width, gifload[14].height - 40, chimneyfound[0] * (hs / 297), (chimneyfound[1] + (80 / 3)) * (hs / 297), gifload[14].width / 3 * (hs / 297), (gifload[14].height - 80) / 3 * (hs / 297));
+        ctx.drawImage(gifload[13], 0, 80, gifload[13].width, gifload[13].height - 40, chimneyfound[0] * (hs / 297), (chimneyfound[1] + (80 / 3)) * (hs / 297), gifload[13].width / 3 * (hs / 297), (gifload[13].height - 80) / 3 * (hs / 297));
     }
 
     for (loadpixpets = 0; loadpixpets < pixpets.length; loadpixpets++) {
@@ -677,19 +613,17 @@ maingame = function() {
         }
 
         ctx.globalAlpha = 1;
-        skillbuttons(12, 210, 0);
-        skillbuttons(45, 228, 1);
-        skillbuttons(58, 260, 2);
+        skillbuttons(58, 250, 0);
     }
 
-    if (pixpets[0].Health <= 0 || endgame) {
+    if ((pixpets[0].Health <= 0&&pixpets[0].DeathAnimation == 2) || endgame) {
         endgamemake();
     } else {
 
         //code for lives goes here
         for (let livecount = 0; livecount < livestotal; livecount++) {
             ctx.globalAlpha = 1;
-            ctx.drawImage(livecount + 1 <= pixpets[0].Health ? (pixpets[0].Invincibility > 0 ? gifload[23] : gifload[10]) : gifload[11], (10 + (livecount * 30)) * (hs / 297), 55 * (hs / 297), 19 * (hs / 297), 19 * (hs / 297));
+            ctx.drawImage(livecount + 1 <= pixpets[0].Health ? (pixpets[0].Invincibility > 0 ? gifload[16] : gifload[10]) : gifload[11], (10 + (livecount * 30)) * (hs / 297), 55 * (hs / 297), 19 * (hs / 297), 19 * (hs / 297));
         }
 
     }
@@ -698,7 +632,7 @@ maingame = function() {
     if (ctx.globalAlpha == 1 && mousedown) {
         music.volume = (music.volume == 0.7 ? 0 : 0.7)
     }
-    ctx.drawImage(music.volume == 0.7 ? gifload[27] : gifload[28], 185 * (hs / 297), 2 * (hs / 297), 21 * (hs / 297), 21 * (hs / 297));
+    ctx.drawImage(music.volume == 0.7 ? gifload[18] : gifload[19], 185 * (hs / 297), 2 * (hs / 297), 21 * (hs / 297), 21 * (hs / 297));
 
     collision(mousex, mousey, 0, 0, 185 * (hs / 297), 25 * (hs / 297), 21 * (hs / 297), 21 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     if (ctx.globalAlpha == 1 && mousedown) {
@@ -709,7 +643,7 @@ maingame = function() {
             }
         }
     }
-    ctx.drawImage(soundeffectvolume == 1 ? gifload[29] : gifload[30], 185 * (hs / 297), 25 * (hs / 297), 21 * (hs / 297), 21 * (hs / 297));
+    ctx.drawImage(soundeffectvolume == 1 ? gifload[20] : gifload[21], 185 * (hs / 297), 25 * (hs / 297), 21 * (hs / 297), 21 * (hs / 297));
 
     mousedown = false;
 }
