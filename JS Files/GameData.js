@@ -175,14 +175,14 @@ textmaker = function(text, x, y, size, sizeswitch = false) {
             ctx.strokeStyle = "black";
             ctx.lineWidth = (size / 25) * 4 * (hs / 297);
             ctx.strokeText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 1.95), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 1.95), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
         } else {
             ctx.font = "900 " + size * (hs / 297) + "px SG12";
             ctx.strokeStyle = "black";
             ctx.lineWidth = (size / 25) * 4 * (hs / 297);
             ctx.strokeText(text.split("\n")[textsplit], x * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
         }
 
@@ -245,7 +245,7 @@ fullscreencode = function() {
 //skill buttons display and code goes here
 skillbuttons = function(x, y, itemOwned) {
     circlecollision(mousex, x + 15, mousey, y + 15, 15) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
-    ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 30 * (hs / 297), 30 * (hs / 297))
+    ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 45 * (hs / 297), 45 * (hs / 297))
 
     if (ctx.globalAlpha == 1) {
         textmaker("Sweet Delivery", 110, 265, 10)
@@ -263,15 +263,15 @@ skillbuttons = function(x, y, itemOwned) {
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 5 * (hs / 297);
-    ctx.arc((x + 15) * (hs / 297), (y + 15) * (hs / 297), 15 * (hs / 297), Math.PI / 180 * -90, (((360 / 0.5) * pixpets[0].Reload) - 90) * Math.PI / 180, false)
+    ctx.lineWidth = 7.5 * (hs / 297);
+    ctx.arc((x + 45/2) * (hs / 297), (y + 45/2) * (hs / 297), 45/2 * (hs / 297), Math.PI / 180 * -90, (((360 / 0.5) * pixpets[0].Reload) - 90) * Math.PI / 180, false)
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.strokeStyle = "#ff7f73";
-    ctx.lineWidth = 1.75 * (hs / 297);
-    ctx.arc((x + 15) * (hs / 297), (y + 15) * (hs / 297), 15 * (hs / 297), Math.PI / 180 * -90, (((360 / 0.5) * pixpets[0].Reload) - 90) * Math.PI / 180, false)
+    ctx.lineWidth = 2.625 * (hs / 297);
+    ctx.arc((x + 45/2) * (hs / 297), (y + 45/2) * (hs / 297), 45/2 * (hs / 297), Math.PI / 180 * -90, (((360 / 0.5) * pixpets[0].Reload) - 90) * Math.PI / 180, false)
     ctx.stroke();
     ctx.closePath();
 }
@@ -613,7 +613,7 @@ maingame = function() {
         }
 
         ctx.globalAlpha = 1;
-        skillbuttons(58, 250, 0);
+        skillbuttons(470, 245, 0);
     }
 
     if ((pixpets[0].Health <= 0&&pixpets[0].DeathAnimation == 2) || endgame) {
