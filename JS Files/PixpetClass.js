@@ -235,7 +235,7 @@ pixpet.prototype.draw = function(index) {
        if (this.X < 0) {
         this.X = 0
        }
-       if (this.Y > 280) {
+       if (this.Y > 280&&this.Health > 0) {
         this.Y = 280
        }
        if (this.Y < 50&&this.Health > 0) {

@@ -248,8 +248,8 @@ skillbuttons = function(x, y, itemOwned) {
     ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 45 * (hs / 297), 45 * (hs / 297))
 
     if (ctx.globalAlpha == 1) {
-        textmaker("Sweet Delivery", 110, 265, 10)
-        textmaker("USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS", 110, 275, 8)
+        textmaker("Sweet Delivery", 188, 265, 10)
+        textmaker("USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS\nSILVER AND GOLDEN PRESENT VARITIES APPEAR RANDOMLY", 188, 275, 8)
 
         if (mousedown && pixpets[0].Reload == 0) {
             pixpets[0].Reload = 0.5;
