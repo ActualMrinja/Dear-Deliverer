@@ -175,14 +175,14 @@ textmaker = function(text, x, y, size, sizeswitch = false) {
         if (sizeswitch) {
             ctx.font = "900 " + size * (hs / 297) + "px SG12";
             ctx.strokeStyle = "black";
-            ctx.lineWidth = (size / 25) * 5 * (hs / 297);
+            ctx.lineWidth = (size / 25) * 6 * (hs / 297);
             ctx.strokeText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 1.95), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
             ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 1.95), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
         } else {
             ctx.font = "900 " + size * (hs / 297) + "px SG12";
             ctx.strokeStyle = "black";
-            ctx.lineWidth = (size / 25) * 5 * (hs / 297);
+            ctx.lineWidth = (size / 25) * 6 * (hs / 297);
             ctx.strokeText(text.split("\n")[textsplit], x * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
             ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
@@ -405,7 +405,6 @@ if(pixpets[0].Health > 0&&!endgame){
 endgamemake = function() {
 
     if (!endgame) {
-        ctx.globalAlpha = 1;
         textmaker("YOU SURVIVED FOR " + Math.floor(seconds) + " " + (Math.floor(seconds) == 1 ? "SECOND" : "SECONDS") + "\nSCORE: " + score, 264, 100, 20, true);
 
         //Dummy variables go here
@@ -444,7 +443,6 @@ endgamemake = function() {
                 
                 music.play();
             }
-            ctx.globalAlpha = 1;
             textmaker("TRY AGAIN", 204, !mouseup && collision(mousex, mousey, 0, 0, 155 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 10, true);
             textmaker("SEND SCORE", 324, !mouseup && collision(mousex, mousey, 0, 0, 275 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 10, true);
         } else {
@@ -464,7 +462,6 @@ endgamemake = function() {
                 
                 music.play();
             }
-            ctx.globalAlpha = 1;
             textmaker("TRY AGAIN", 264, !mouseup && collision(mousex, mousey, 0, 0, 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 10, true);
         }
 
@@ -482,7 +479,6 @@ endgamemake = function() {
             pixpets = [new pixpet("Pydeer", pixpets[0].X, pixpets[0].Y)];
         }
 
-        ctx.globalAlpha = 1;
         textmaker("PLAY", 449, !mouseup && collision(mousex, mousey, 0, 0, 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 174 : 172, 12, true);
 
         collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
@@ -495,7 +491,6 @@ endgamemake = function() {
             }
         }
 
-        ctx.globalAlpha = 1;
         textmaker("LIVES: " + livestotal, 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 124 : 122, 12, true);
 
         collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
