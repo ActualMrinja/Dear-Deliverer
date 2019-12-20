@@ -176,7 +176,7 @@ textmaker = function(text, x, y, size, sizeswitch = false) {
             ctx.font = "100 " + size * (hs / 297) + "px SG12";
             ctx.strokeStyle = "black";
             ctx.lineWidth = (size / 25) * ((24/size)+4) * (hs / 297);
-            ctx.strokeText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 2), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
+            ctx.strokeText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 2)-(window.devicePixelRatio-1), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
             ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 2), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
         } else {
@@ -250,7 +250,7 @@ skillbuttons = function(x, y, itemOwned) {
     ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 45 * (hs / 297), 45 * (hs / 297))
 
     if (ctx.globalAlpha == 1) {
-        textmaker("Sweet Delivery", 95, 250, 13)
+        textmaker("SWEET DELIVERY", 95, 255, 13)
         textmaker("USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS\nSILVER AND GOLDEN PRESENT VARITIES APPEAR RANDOMLY", 90, 270, 11)
 
         if (mousedown && pixpets[0].Reload == 0) {
