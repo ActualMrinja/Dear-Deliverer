@@ -176,14 +176,14 @@ textmaker = function(text, x, y, size, sizeswitch = false) {
             ctx.font = "100 " + size * (hs / 297) + "px SG12";
             ctx.strokeStyle = "black";
             ctx.lineWidth = (size / 25) * ((24/size)+4) * (hs / 297);
-            ctx.strokeText(text.split("\n")[textsplit], (x+((window.devicePixelRatio == 1 ? 1 : window.devicePixelRatio*1.5)-1)) * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 2), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
+            ctx.strokeText(text.split("\n")[textsplit], (x+((window.devicePixelRatio == 1 ? 1 : window.devicePixelRatio*1.25)-1)) * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 2), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
             ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297) - (ctx.measureText(text.split("\n")[textsplit]).width / 2), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width);
         } else {
             ctx.font = "100 " + size * (hs / 297) + "px SG12";
             ctx.strokeStyle = "black";
             ctx.lineWidth = (size / 25) * ((24/size)+4) * (hs / 297);
-            ctx.strokeText(text.split("\n")[textsplit], (x +((window.devicePixelRatio == 1 ? 1 : window.devicePixelRatio*1.5)-1)) * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
+            ctx.strokeText(text.split("\n")[textsplit], (x +((window.devicePixelRatio == 1 ? 1 : window.devicePixelRatio*1.25)-1)) * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
             ctx.fillStyle = "#ffffff";
             ctx.fillText(text.split("\n")[textsplit], x * (hs / 297), (y + (textsplit * size * 1.25)) * (hs / 297), ctx.measureText(text.split("\n")[textsplit]).width * (hs / 297));
         }
