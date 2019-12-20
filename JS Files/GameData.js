@@ -579,7 +579,7 @@ maingame = function() {
 
     ctx.globalAlpha = 1;
     ctx.drawImage(gifload[0], 0, 0, (hs / 297) * 528, (hs / 297) * 50);
-    ctx.drawImage(gifload[5], 220 * (hs / 297), 1 * (hs / 297), gifload[5].width / 5.5 * (hs / 297), gifload[5].height / 5.5 * (hs / 297));
+    ctx.drawImage(gifload[5], 220 * (hs / 297), 1 * (hs / 297), gifload[5].width / 11 * (hs / 297), gifload[5].height / 11 * (hs / 297));
     textmaker("DEAR DELIVERER", 280, 33.5, 20);
 
     //overload
