@@ -250,8 +250,8 @@ skillbuttons = function(x, y, itemOwned) {
     ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 45 * (hs / 297), 45 * (hs / 297))
 
     if (ctx.globalAlpha == 1) {
-        textmaker("Sweet Delivery", 188, 265, 10)
-        textmaker("USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS\nSILVER AND GOLDEN PRESENT VARITIES APPEAR RANDOMLY", 188, 275, 8)
+        textmaker("Sweet Delivery", 95, 250, 13)
+        textmaker("USE TO DROP A WELL-CRAFTED PRESENT DOWN CHIMNEYS\nSILVER AND GOLDEN PRESENT VARITIES APPEAR RANDOMLY", 90, 270, 11)
 
         if (mousedown && pixpets[0].Reload == 0) {
             pixpets[0].Reload = 0.5;
@@ -443,8 +443,8 @@ endgamemake = function() {
                 
                 music.play();
             }
-            textmaker("TRY AGAIN", 204, !mouseup && collision(mousex, mousey, 0, 0, 155 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 10, true);
-            textmaker("SEND SCORE", 324, !mouseup && collision(mousex, mousey, 0, 0, 275 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 10, true);
+            textmaker("TRY AGAIN", 204, !mouseup && collision(mousex, mousey, 0, 0, 155 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 12, true);
+            textmaker("SEND SCORE", 324, !mouseup && collision(mousex, mousey, 0, 0, 275 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 12, true);
         } else {
 
             collision(mousex, mousey, 0, 0, 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
@@ -462,7 +462,7 @@ endgamemake = function() {
                 
                 music.play();
             }
-            textmaker("TRY AGAIN", 264, !mouseup && collision(mousex, mousey, 0, 0, 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 10, true);
+            textmaker("TRY AGAIN", 264, !mouseup && collision(mousex, mousey, 0, 0, 215 * (hs / 297), 160 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 182 : 180, 12, true);
         }
 
     } else {
@@ -479,7 +479,7 @@ endgamemake = function() {
             pixpets = [new pixpet("Pydeer", pixpets[0].X, pixpets[0].Y)];
         }
 
-        textmaker("PLAY", 449, !mouseup && collision(mousex, mousey, 0, 0, 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 174 : 172, 12, true);
+        textmaker("PLAY", 449, !mouseup && collision(mousex, mousey, 0, 0, 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 174 : 172, 14, true);
 
         collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
         ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
@@ -491,7 +491,7 @@ endgamemake = function() {
             }
         }
 
-        textmaker("LIVES: " + livestotal, 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 124 : 122, 12, true);
+        textmaker("LIVES: " + livestotal, 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 100 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 124 : 122, 14, true);
 
         collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
         ctx.drawImage(!mouseup && ctx.globalAlpha == 1 ? gifload[23] : gifload[22], 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297));
@@ -501,10 +501,10 @@ endgamemake = function() {
         }
 
         ctx.globalAlpha = 1;
-        textmaker("TIPS", 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 224 : 222, 12, true);
+        textmaker("TIPS", 399, !mouseup && collision(mousex, mousey, 0, 0, 350 * (hs / 297), 200 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 224 : 222, 14, true);
 
         if (tipon == true) {
-            textmaker("Collect points by:\n-Dropping presents through chimneys\n-PC bubbles\n\nPresents give more points depending on\ntheir coloring and amount of lives\nstarted off with\n\nMove with arrow keys, joystick, or WASD\n\nDo not touch chimneys or other pixpets".toUpperCase(), 20, 90, 12);
+            textmaker("Collect points by:\n-Dropping presents through chimneys\n-PC bubbles\n\nPresents give more points depending on\ntheir coloring and amount of lives\nstarted off with\n\nMove with arrow keys, joystick,\nor WASD\n\nDo not touch chimneys or other pixpets".toUpperCase(), 10, 80, 14);
         }
 
     }
