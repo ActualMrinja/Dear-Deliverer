@@ -82,7 +82,11 @@ itembuild.prototype.draw = function(index) {
                 pixpets[0].Invincibility = 4;
                 soundeffect("Audio Files/GlassBreakHarsh.mp3");
             } else if(this.Type == "HeartUpIcon"){
-                if(pixpets[0].Health < livestotal) { pixpets[0].Health += 1; }
+                if(pixpets[0].Health < livestotal) { 
+                    pixpets[0].Health += 1; 
+                } else {
+                    score += 5;
+                }
                 soundeffect("Audio Files/GlassBreak.mp3");
             }
             
