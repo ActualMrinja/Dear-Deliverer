@@ -509,13 +509,13 @@ endgamemake = function() {
 maingame = function() {
 
     //if made small screen through tab hiding it will be become small screen automatically
- if(!document.fullscreenElement&&!document.mozFullScreenElement&&!document.webkitFullscreenElement&&!document.msFullscreenElement&&!document.webkitCurrentFullScreenElement) {
+ /**if(!document.fullscreenElement&&!document.mozFullScreenElement&&!document.webkitFullscreenElement&&!document.msFullscreenElement&&!document.webkitCurrentFullScreenElement) {
         canvas.width = 528;
         canvas.height = 297;
         ws = canvas.width;
         hs = canvas.height;
         canvas.style.border = "";
-    }
+    }**/
     
     if (canvas.width !== 528) {
         ws = (window.innerWidth && document.documentElement.clientWidth) ?
@@ -526,8 +526,8 @@ maingame = function() {
         hs = Math.floor(ws / (528 / 297));
         canvas.width = ws
         canvas.height = hs;
-        canvas.style.borderTop = ((outerHeight-hs)/2)+"px solid black";
-        canvas.style.borderBottom = ((outerHeight-hs)/2)+"px solid black";
+        canvas.style.borderTop = ((window.outerHeight-hs)/2)+"px solid black";
+        canvas.style.borderBottom = ((window.outerHeight-hs)/2)+"px solid black";
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
