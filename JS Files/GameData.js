@@ -67,21 +67,10 @@ itemsmake = []
 PATS = 3;
 prize = 0;
 
-//music handler, intro >> main theme, main theme is preloaded
 music = new Audio("Audio Files/DearDelivererMainTheme.mp3")
-music = new Audio("Audio Files/DearDelivererIntro.mp3");
 music.volume = 0.7;
-music.loop = false;
+music.loop = true;
 music.play()
-
-music.onended = function() {
-    let keepvolume = music.volume; //makes the music keep its volume when resetting
-    music.pause();
-    music = new Audio("Audio Files/DearDelivererMainTheme.mp3")
-    music.volume = keepvolume
-    music.loop = true;
-    music.play();
-}
 
 sounds = [0, 0, 0, 0, 0, 0];
 soundeffectvolume = 1;
