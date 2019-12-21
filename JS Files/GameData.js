@@ -89,10 +89,6 @@ soundsloop = 0;
 endgame = true;
 tipon = false;
 
-fullScreenTypeUsed = 0;
-fullScreenTypeExits = [document.webkitFullScreenElement, document.fullscreenElement, document.mozFullScreenElement, document.msFullscreenElement];
-
-
 //x,y,degrees, and type
 backgroundmake = [];
 
@@ -144,7 +140,6 @@ mousemake = function(event) {
 mobilemousemake = function(event) {
     mousex = event.touches[0].clientX - canvas.getBoundingClientRect().left;
     mousey = event.touches[0].clientY - canvas.getBoundingClientRect().top;
-    mousedown = true;
 }
 
 mousedowncheck = function() {
@@ -208,18 +203,14 @@ fullscreencode = function() {
 
         if (canvas.webkitRequestFullscreen) {
             /* Chrome, Safari and Opera */
-            fullScreenTypeUsed = 0;
             canvas.webkitRequestFullscreen();
         } else if (canvas.requestFullscreen) {
-            fullScreenTypeUsed = 1;
             canvas.requestFullscreen();
         } else if (canvas.mozRequestFullScreen) {
             /* Firefox */
-            fullScreenTypeUsed = 2;
             canvas.mozRequestFullScreen();
         } else if (canvas.msRequestFullscreen) {
             /* IE/Edge */
-            fullScreenTypeUsed = 3;
             canvas.msRequestFullscreen();
         }
 
@@ -527,13 +518,12 @@ endgamemake = function() {
 maingame = function() {
 
     //if made small screen through tab hiding it will be become small screen automatically
-    /**
-    if (!fullScreenTypeExits[0]) {
+ if(!document.fullscreenElement&&!document.mozFullScreenElement&&!document.webkitFullscreenElement&&!document.msFullscreenElement&&!document.webkitCurrentFullScreenElement) {
         canvas.width = 528;
         canvas.height = 297;
         ws = canvas.width;
         hs = canvas.height;
-    }**/
+    }
     
     if (canvas.width !== 528) {
         ws = (window.innerWidth && document.documentElement.clientWidth) ?
@@ -602,11 +592,23 @@ maingame = function() {
     
     textmaker("SCORE: " + (endgame ? "000" : score), 20, 33.5, 20);
 
-    (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30)) ? ctx.globalAlpha = 1: ctx.globalAlpha = 0.85;
-    ctx.drawImage((ws == 528) ? gifload[1] : gifload[2], (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30);
+    //Ipads cannot go full screen
+    if((((window.innerWidth && document.documentElement.clientWidth) ?
+            Math.min(window.innerWidth, document.documentElement.clientWidth) :
+            window.innerWidth ||
+            document.documentElement.clientWidth ||
+            document.body.clientWidth)/((window.innerHeight && document.documentElement.clientHeight) ?
+            Math.min(window.innerHeight, document.documentElement.clientHeight) :
+            window.innerHeight ||
+            document.documentElement.clientHeight ||
+            document.body.clientWidth)).toFixed(2) !== "1.33"){
+     (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30)) ? ctx.globalAlpha = 1:
+     ctx.globalAlpha = 0.85;
+     ctx.drawImage((ws == 528) ? gifload[1] : gifload[2], (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30);
 
-    if (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30) && mousedown) {
-        fullscreencode();
+      if (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30) && mousedown) {
+         fullscreencode();
+      } 
     }
 
     if (!endgame && pixpets[0].Health > 0) {
