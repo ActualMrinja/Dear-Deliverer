@@ -594,7 +594,7 @@ maingame = function() {
     textmaker("SCORE: " + (endgame ? "000" : score), 20, 33.5, 20);
 
     //Ipads cannot go full screen
-    if((((window.innerWidth && document.documentElement.clientWidth) ?
+    if(((window.innerWidth && document.documentElement.clientWidth) ?
             Math.min(window.innerWidth, document.documentElement.clientWidth) :
             window.innerWidth ||
             document.documentElement.clientWidth ||
@@ -602,7 +602,7 @@ maingame = function() {
             Math.min(window.innerHeight, document.documentElement.clientHeight) :
             window.innerHeight ||
             document.documentElement.clientHeight ||
-            document.body.clientWidth)).toFixed(2) !== "0.75"){
+            document.body.clientWidth) !== 0.75){
      (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30)) ? ctx.globalAlpha = 1:
      ctx.globalAlpha = 0.85;
      ctx.drawImage((ws == 528) ? gifload[1] : gifload[2], (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30);
