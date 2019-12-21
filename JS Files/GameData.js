@@ -67,7 +67,7 @@ itemsmake = []
 PATS = 3;
 prize = 0;
 
-music = new Audio("Audio Files/DearDelivererMainTheme.mp3")
+music = new Audio("Audio Files/DearDelivererMainTheme.wav")
 music.volume = 0.7;
 music.loop = true;
 music.play()
