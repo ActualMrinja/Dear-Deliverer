@@ -235,6 +235,7 @@ fullscreencode = function() {
         canvas.width = 528;
         canvas.height = 297;
         canvas.style.border = "";
+        canvas.style.position = "absolute";
         mousedown = false;
     }
 
@@ -514,6 +515,7 @@ maingame = function() {
         canvas.height = 297;
         ws = canvas.width;
         hs = canvas.height;
+        canvas.style.position = "absolute";
         canvas.style.border = "";
     }**/
     
@@ -526,8 +528,9 @@ maingame = function() {
         hs = Math.floor(ws / (528 / 297));
         canvas.width = ws
         canvas.height = hs;
-        canvas.style.borderTop = ((window.innerHeight-hs)/2)+"px solid black";
-        canvas.style.borderBottom = ((window.innerHeight-hs)/2)+"px solid black";
+        canvas.style.position = "fixed";
+        canvas.style.borderTop = "100% solid black";
+        canvas.style.borderBottom = "100% solid black";
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
