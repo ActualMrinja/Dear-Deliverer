@@ -234,6 +234,7 @@ fullscreencode = function() {
         hs = 297;
         canvas.width = 528;
         canvas.height = 297;
+        canvas.style.border = "";
         mousedown = false;
     }
 
@@ -513,6 +514,7 @@ maingame = function() {
         canvas.height = 297;
         ws = canvas.width;
         hs = canvas.height;
+        canvas.style.border = "";
     }
     
     if (canvas.width !== 528) {
@@ -524,6 +526,7 @@ maingame = function() {
         hs = Math.floor(ws / (528 / 297));
         canvas.width = ws
         canvas.height = hs;
+        canvas.style.border = ((outerHeight-hs)/2)+"px 0px "+((outerHeight-hs)/2)+"px 0px solid black";
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -583,7 +586,7 @@ maingame = function() {
     textmaker("SCORE: " + (endgame ? "000" : score), 20, 33.5, 20);
 
     //Ipads cannot go full screen
-    if(((outerWidth)/(outerHeight)).toFixed(2) !== "0.75"){
+    //if(((outerWidth)/(outerHeight)).toFixed(2) !== "0.75"){
      (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30)) ? ctx.globalAlpha = 1:
      ctx.globalAlpha = 0.85;
      ctx.drawImage((ws == 528) ? gifload[1] : gifload[2], (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30);
@@ -591,7 +594,7 @@ maingame = function() {
       if (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30) && mousedown) {
          fullscreencode();
       } 
-    }
+    //}
 
     if (!endgame && pixpets[0].Health > 0) {
 
