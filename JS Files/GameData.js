@@ -526,8 +526,8 @@ maingame = function() {
         hs = Math.floor(ws / (528 / 297));
         canvas.width = ws
         canvas.height = hs;
-        canvas.style.borderTop = ((window.outerHeight-hs)/2)+"px solid black";
-        canvas.style.borderBottom = ((window.outerHeight-hs)/2)+"px solid black";
+        canvas.style.borderTop = ((window.innerHeight-hs)/2)+"px solid black";
+        canvas.style.borderBottom = ((window.innerHeight-hs)/2)+"px solid black";
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
