@@ -513,8 +513,6 @@ maingame = function() {
         canvas.height = 297;
         ws = canvas.width;
         hs = canvas.height;
-        canvas.style.position = "absolute";
-        canvas.style.border = "";
     }
     
     if (canvas.width !== 528) {
