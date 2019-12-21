@@ -390,7 +390,7 @@ if(pixpets[0].Health > 0&&!endgame){
     }
     
 
-    //A skill bubble generates every 8 seconds, 50% for primary or secondary skill
+    //A skill bubble generates every 10 seconds
     if (Math.ceil(seconds) % 10 == 0 && seconds % 1 > 0.9 + 2 / 30) {
             let bubblePick = Math.floor(Math.random() * 3);
             itemsmake.push(new itembuild(bubblePick == 0 ? "HeartOfIceIcon" : bubblePick == 1 ? "HeartUpIcon" : "ScorePlusIcon", 450, Math.random() * 147 + 50));
@@ -483,6 +483,7 @@ endgamemake = function() {
             endgame = false;
             tipon = false;
             pixpets = [new pixpet("Pydeer", pixpets[0].X, pixpets[0].Y)];
+            itemsmake = [];
         }
 
         textmaker("PLAY", 449, !mouseup && collision(mousex, mousey, 0, 0, 400 * (hs / 297), 150 * (hs / 297), 96 * (hs / 297), 30 * (hs / 297)) ? 174 : 172, 14, true);
