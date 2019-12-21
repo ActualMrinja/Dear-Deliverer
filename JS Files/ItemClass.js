@@ -84,10 +84,11 @@ itembuild.prototype.draw = function(index) {
             } else if(this.Type == "HeartUpIcon"){
                 if(pixpets[0].Health < livestotal) { 
                     pixpets[0].Health += 1; 
+                    soundeffect("Audio Files/GlassBreak.mp3");
                 } else {
                     score += 5;
+                    soundeffect("Audio Files/Score.mp3")
                 }
-                soundeffect("Audio Files/GlassBreak.mp3");
             }
             
 
