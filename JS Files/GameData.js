@@ -130,6 +130,13 @@ mobilemousemake = function(event) {
     mousex = event.touches[0].clientX - canvas.getBoundingClientRect().left;
     mousey = event.touches[0].clientY - canvas.getBoundingClientRect().top;
     mousedown = true;
+    
+     //Two fingers can be used on mobile
+    if (circlecollision(event.touches[event.touches.length-1].clientX - canvas.getBoundingClientRect().left, 470 + 15, event.touches[event.touches.length-1].clientY - canvas.getBoundingClientRect().top, 245 + 15, 15)&&pixpets[0].Reload == 0) {
+            pixpets[0].Reload = 0.5;
+            pixpets[0].skill(0, "Sweet_Delivery");
+    }
+
 }
 
 mousedowncheck = function() {
@@ -240,7 +247,7 @@ fullscreencode = function() {
 }
 
 //skill buttons display and code goes here
-skillbuttons = function(x, y) {
+skillbuttons = function(x, y, itemOwned) {
     circlecollision(mousex, x + 15, mousey, y + 15, 15) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 45 * (hs / 297), 45 * (hs / 297))
 
