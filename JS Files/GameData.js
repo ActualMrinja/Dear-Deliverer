@@ -129,14 +129,14 @@ mousemake = function(event) {
 mobilemousemake = function(event) {
     mousex = event.touches[0].clientX - canvas.getBoundingClientRect().left;
     mousey = event.touches[0].clientY - canvas.getBoundingClientRect().top;
- 
+    mousedown = true;
+    
     //Two fingers can be used on mobile
     if (circlecollision(event.touches[1].clientX, 470 + 15, event.touches[1].clientY, 245 + 15, 15)&&pixpets[0].Reload == 0) {
             pixpets[0].Reload = 0.5;
             pixpets[0].skill(0, "Sweet_Delivery");
     }
-    
-    mousedown = true;
+
 }
 
 mousedowncheck = function() {
