@@ -89,6 +89,10 @@ soundsloop = 0;
 endgame = true;
 tipon = false;
 
+fullScreenTypeUsed = 0;
+fullScreenTypeExits = [document.webkitFullScreenElement, document.fullscreenElement, document.mozFullScreenElement, document.msFullscreenElement];
+
+
 //x,y,degrees, and type
 backgroundmake = [];
 
@@ -198,24 +202,24 @@ textmaker = function(text, x, y, size, sizeswitch = false) {
 
 }
 
-isFullscreen = function(){ 
-    return 1 >= outerHeight - innerHeight
-}
-
 fullscreencode = function() {
 
     if (ws == 528) {
 
         if (canvas.webkitRequestFullscreen) {
             /* Chrome, Safari and Opera */
+            fullScreenTypeUsed = 0;
             canvas.webkitRequestFullscreen();
         } else if (canvas.requestFullscreen) {
+            fullScreenTypeUsed = 1;
             canvas.requestFullscreen();
         } else if (canvas.mozRequestFullScreen) {
             /* Firefox */
+            fullScreenTypeUsed = 2;
             canvas.mozRequestFullScreen();
         } else if (canvas.msRequestFullscreen) {
             /* IE/Edge */
+            fullScreenTypeUsed = 3;
             canvas.msRequestFullscreen();
         }
 
@@ -523,12 +527,13 @@ endgamemake = function() {
 maingame = function() {
 
     //if made small screen through tab hiding it will be become small screen automatically
-    if (!isFullscreen()) {
+    /**
+    if (!fullScreenTypeExits[0]) {
         canvas.width = 528;
         canvas.height = 297;
         ws = canvas.width;
         hs = canvas.height;
-    }
+    }**/
     
     if (canvas.width !== 528) {
         ws = (window.innerWidth && document.documentElement.clientWidth) ?
