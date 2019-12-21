@@ -322,9 +322,9 @@ if(pixpets[0].Health > 0&&!endgame){
     
     /**
     Mobath Spawning
-    Score 100-200 - 1/3
-    Score 50-99 - 1/4
     Score 0-49 - 1/5
+    Score 50-99 - 1/4
+    Score 100-200 - 1/3    
     **/
     if (score < 50 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 5) + 1 == 1) {
         pixpets.push(new pixpet("Mobath", 550, Math.random() * 147 + 50));
@@ -336,9 +336,9 @@ if(pixpets[0].Health > 0&&!endgame){
 
     /**
     Taffyglider Spawning
-    Score 200+ - 1/8
-    Score 150-199 - 1/9
     Score 50-149 - 1/10
+    Score 150-199 - 1/9
+    Score 200+ - 1/8 
     **/
     if (score >= 200 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 8) + 1 == 1) {
         pixpets.push(new pixpet("Taffyglider", 550, Math.random() * 147 + 50));
@@ -350,9 +350,14 @@ if(pixpets[0].Health > 0&&!endgame){
 
     /**
     Troffinch Spawning
-    Score 200+ - 1/5 (1/5 a flock - 4/5 for a flydown)
+    (1/5 a flock - 4/5 for a flydown)
+    Score 200-399 - 1/9
+    Score 400-599 - 1/7
+    Score 600+ - 1/5
     **/
-    if (score >= 200 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 5) + 1 == 1) {
+    if ((score >= 200 && score < 400 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 9) + 1 == 1)||
+       (score >= 400 && score < 600 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 7) + 1 == 1)||
+       (score >= 600 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 5) + 1 == 1)) {
         
         if(Math.floor(Math.random() * 5) + 1 == 1){
         pixpets.push(new pixpet("Troffinch", 550, Math.random() * 147 + 50));
@@ -369,10 +374,10 @@ if(pixpets[0].Health > 0&&!endgame){
 
     /**
     Parrogrine Spawning
-    Score 750+ - 1/15
-    Score 600-749 - 1/16
-    Score 500-599 - 1/18
     Score 400-499 - 1/20
+    Score 500-599 - 1/18
+    Score 600-749 - 1/16
+    Score 750+ - 1/15
     **/
     if (score >= 750 && seconds % 1 > 0.9 + 2 / 30 && Math.floor(Math.random() * 15) + 1 == 1) {
         pixpets.push(new pixpet("Parrogrine", 550, Math.random() * 147 + 50));
