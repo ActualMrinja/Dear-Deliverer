@@ -51,8 +51,8 @@ itembuild.prototype.draw = function(index) {
     ctx.restore();
 
     //touching the sides of a chimney will destroy the item   
-    if (this.Type.split("Icon").length == 1&&chimneyfound[2] == false&&(collision(chimneyfound[0], chimneyfound[1] + (80 / 3), 5, (gifload[14].height - 80) / 3, this.X - this.Image.width / 3 / 2, this.Y - this.Image.height / 3 / 2, this.Image.width / 3, this.Image.height / 3) || collision(chimneyfound[0] + gifload[13].width / 3 - 5, chimneyfound[1] + (80 / 3), 5, (gifload[13].height - 80) / 3, this.X - this.Image.width / 3 / 2, this.Y - this.Image.height / 3 / 2, this.Image.width / 3, this.Image.height / 3))) {
-        soundeffect("Audio Files/ItemBreak.mp3");
+    if (this.Type.split("Icon").length == 1&&(collision(chimneyfound[0], chimneyfound[1] + (80 / 3), 5, (gifload[14].height - 80) / 3, this.X - this.Image.width / 3 / 2, this.Y - this.Image.height / 3 / 2, this.Image.width / 3, this.Image.height / 3) || collision(chimneyfound[0] + gifload[13].width / 3 - 5, chimneyfound[1] + (80 / 3), 5, (gifload[13].height - 80) / 3, this.X - this.Image.width / 3 / 2, this.Y - this.Image.height / 3 / 2, this.Image.width / 3, this.Image.height / 3))) {
+        if(chimneyfound[2] == false){ soundeffect("Audio Files/ItemBreak.mp3"); }
         this.delete(index);
     } else if (this.Type.split("Icon").length == 1&& collision(chimneyfound[0], chimneyfound[1] + (80 / 3), gifload[13].width / 3, 5, this.X - this.Image.width / 3 / 2, this.Y - this.Image.height / 3 / 2, this.Image.width / 3, this.Image.height / 3) && chimneyfound[2] == false) {
         score += this.Type == "GoldenDelivery" ? 8 * (6 - livestotal) : this.Type == "SilverDelivery" ? 4 * (6 - livestotal) : 2 * (6 - livestotal);
