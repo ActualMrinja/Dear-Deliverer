@@ -128,6 +128,7 @@ pixpet.prototype.skill = function(index, skilltype) {
             //After cooldown Parrogrines sprint
             if (this.Reload == 0) {
                 if(this.X >= 485) { soundeffect("Audio Files/SleighBell.mp3"); }
+                this.Rotate = 310;
                 this.X -= 24;
             } else {
                this.Rotate = Math.atan2(this.Y - pixpets[0].Y, this.X - pixpets[0].X) * (180 / Math.PI) 
