@@ -140,6 +140,7 @@ mousemake = function(event) {
 mobilemousemake = function(event) {
     mousex = event.touches[0].clientX - canvas.getBoundingClientRect().left;
     mousey = event.touches[0].clientY - canvas.getBoundingClientRect().top;
+    mousedown = true;
 }
 
 mousedowncheck = function() {
@@ -601,7 +602,7 @@ maingame = function() {
             Math.min(window.innerHeight, document.documentElement.clientHeight) :
             window.innerHeight ||
             document.documentElement.clientHeight ||
-            document.body.clientWidth)).toFixed(2) !== "1.33"){
+            document.body.clientWidth)).toFixed(2) !== "0.75"){
      (collision(mousex, mousey, 0, 0, (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30)) ? ctx.globalAlpha = 1:
      ctx.globalAlpha = 0.85;
      ctx.drawImage((ws == 528) ? gifload[1] : gifload[2], (hs / 297) * 485, (hs / 297) * 8, (hs / 297) * 30, (hs / 297) * 30);
