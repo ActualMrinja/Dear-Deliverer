@@ -129,6 +129,13 @@ mousemake = function(event) {
 mobilemousemake = function(event) {
     mousex = event.touches[0].clientX - canvas.getBoundingClientRect().left;
     mousey = event.touches[0].clientY - canvas.getBoundingClientRect().top;
+ 
+    //Two fingers can be used on mobile
+    if (circlecollision(event.touches[1].clientX, 470 + 15, event.touches[1].clientY, 245 + 15, 15)&&pixpets[0].Reload == 0) {
+            pixpets[0].Reload = 0.5;
+            pixpets[0].skill(0, "Sweet_Delivery");
+    }
+    
     mousedown = true;
 }
 
@@ -240,7 +247,7 @@ fullscreencode = function() {
 }
 
 //skill buttons display and code goes here
-skillbuttons = function(x, y, itemOwned) {
+skillbuttons = function(x, y) {
     circlecollision(mousex, x + 15, mousey, y + 15, 15) ? ctx.globalAlpha = 1 : ctx.globalAlpha = 0.85;
     ctx.drawImage(gifload[8], x * (hs / 297), y * (hs / 297), 45 * (hs / 297), 45 * (hs / 297))
 
@@ -606,7 +613,7 @@ maingame = function() {
         }
 
         ctx.globalAlpha = 1;
-        skillbuttons(470, 245, 0);
+        skillbuttons(470, 245);
     }
 
     if ((pixpets[0].Health <= 0&&pixpets[0].DeathAnimation == 2) || endgame) {
